@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Colagea — Rapport Mensuel Google Ads — Avril 2026</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; line-height: 1.6; color: #1a1a1a; background: #f5f4f0; }
+  .page { max-width: 960px; margin: 0 auto; padding: 40px 32px; }
+
+  :root {
+    --blue: #0085F7;
+    --blue-light: #E6F2FF;
+    --green: #138D5A;
+    --green-light: #E6F5EE;
+    --amber: #F8B83A;
+    --amber-light: #FEF6E6;
+    --dark: #0F1923;
+  }
+
+  /* Cover */
+  .cover { background: var(--dark); color: #fff; border-radius: 12px; padding: 48px 48px 40px; margin-bottom: 32px; position: relative; overflow: hidden; }
+  .cover::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--blue) 0%, var(--green) 50%, var(--amber) 100%); }
+  .cover-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 32px; }
+  .cover-logo-circles { width: 36px; height: 36px; position: relative; }
+  .cover-logo-circles .c1 { position: absolute; width: 36px; height: 36px; border-radius: 50%; border: 5px solid var(--blue); border-bottom-color: transparent; transform: rotate(-30deg); }
+  .cover-logo-circles .c2 { position: absolute; width: 24px; height: 24px; top: 6px; left: 6px; border-radius: 50%; border: 4px solid var(--green); border-top-color: transparent; transform: rotate(30deg); }
+  .cover-logo-circles .c3 { position: absolute; width: 12px; height: 12px; top: 12px; left: 12px; border-radius: 50%; background: var(--amber); }
+  .cover-logo-name { font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.7); letter-spacing: 0.5px; }
+  .cover-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 12px; }
+  .cover h1 { font-size: 34px; font-weight: 700; margin-bottom: 6px; }
+  .cover-sub { font-size: 16px; color: rgba(255,255,255,0.5); margin-bottom: 36px; }
+  .cover-meta { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; background: rgba(255,255,255,0.05); border-radius: 8px; }
+  .cover-meta-item { padding: 16px 20px; border-right: 1px solid rgba(255,255,255,0.08); }
+  .cover-meta-item:last-child { border-right: none; }
+  .cover-meta-item .label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.35); margin-bottom: 4px; }
+  .cover-meta-item .value { font-size: 13px; color: rgba(255,255,255,0.8); font-weight: 500; }
+
+  /* Section */
+  .section { background: #fff; border-radius: 12px; padding: 32px; margin-bottom: 24px; border: 0.5px solid #e5e3dd; }
+  .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 2px solid #f0ede8; }
+  .section-number { width: 32px; height: 32px; border-radius: 50%; background: var(--blue); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; }
+  .section-title { font-size: 18px; font-weight: 700; color: var(--dark); }
+
+  /* Metric cards */
+  .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-bottom: 20px; }
+  .metric-card { background: #f8f7f4; border-radius: 8px; padding: 16px; border-top: 3px solid var(--blue); }
+  .metric-card.green { border-top-color: var(--green); }
+  .metric-card.amber { border-top-color: var(--amber); }
+  .metric-card.red { border-top-color: #c0392b; }
+  .metric-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.8px; color: #999; margin-bottom: 6px; font-weight: 600; }
+  .metric-value { font-size: 22px; font-weight: 700; color: var(--dark); line-height: 1; margin-bottom: 5px; }
+  .metric-change { font-size: 12px; font-weight: 500; }
+  .up { color: var(--green); }
+  .down { color: #c0392b; }
+  .neutral { color: #999; }
+
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { text-align: left; padding: 10px 14px; background: #f8f7f4; color: #666; font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.6px; border-bottom: 2px solid #ede9e3; }
+  td { padding: 10px 14px; border-bottom: 0.5px solid #f0ede8; color: #1a1a1a; vertical-align: middle; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #faf9f7; }
+  .td-right { text-align: right; }
+  .td-center { text-align: center; }
+
+  /* Badges */
+  .badge { display: inline-block; padding: 3px 9px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+  .badge-green { background: var(--green-light); color: var(--green); }
+  .badge-red { background: #fdf0ee; color: #c0392b; }
+  .badge-amber { background: var(--amber-light); color: #9a6800; }
+  .badge-blue { background: var(--blue-light); color: var(--blue); }
+  .badge-gray { background: #f3f2f0; color: #666; }
+
+  /* Charts */
+  .chart-wrap { position: relative; width: 100%; margin: 20px 0; }
+  .chart-legend { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 10px; font-size: 12px; color: #666; }
+  .legend-item { display: flex; align-items: center; gap: 5px; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 2px; }
+
+  /* Highlights */
+  .highlight { border-radius: 0 8px 8px 0; padding: 14px 16px; margin: 14px 0; font-size: 13px; }
+  .highlight.info { background: var(--blue-light); border-left: 3px solid var(--blue); color: #0a3d80; }
+  .highlight.success { background: var(--green-light); border-left: 3px solid var(--green); color: #0a4a2a; }
+  .highlight.warning { background: var(--amber-light); border-left: 3px solid var(--amber); color: #6b3f00; }
+  .highlight.danger { background: #fdf0ee; border-left: 3px solid #c0392b; color: #6b1a1a; }
+
+  /* Subsections */
+  .subsection { margin-bottom: 28px; }
+  .subsection-title { font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 0.5px solid #ede9e3; display: flex; align-items: center; gap: 8px; }
+  .subsection-title::before { content: ''; width: 4px; height: 16px; background: var(--blue); border-radius: 2px; flex-shrink: 0; }
+
+  /* Action items */
+  .action-item { display: flex; gap: 14px; padding: 14px 0; border-bottom: 0.5px solid #f0ede8; align-items: flex-start; }
+  .action-item:last-child { border-bottom: none; }
+  .action-title { font-size: 13px; font-weight: 600; margin-bottom: 4px; color: var(--dark); }
+  .action-desc { font-size: 12px; color: #555; line-height: 1.6; }
+
+  /* Two col */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+  /* Footer */
+  .report-footer { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; margin-top: 8px; border-top: 1px solid #ede9e3; }
+  .footer-brand { display: flex; align-items: center; gap: 8px; font-size: 12px; color: #aaa; }
+  .footer-page { font-size: 12px; color: #ccc; }
+  .color-bar { height: 4px; border-radius: 4px; background: linear-gradient(90deg, var(--blue) 0%, var(--green) 50%, var(--amber) 100%); margin-bottom: 32px; }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .page { padding: 16px 12px; }
+    .cover { padding: 28px 20px 24px; border-radius: 8px; }
+    .cover h1 { font-size: 22px; }
+    .cover-sub { font-size: 13px; margin-bottom: 20px; }
+    .cover-meta { grid-template-columns: 1fr 1fr; }
+    .cover-meta-item { padding: 10px 12px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .cover-meta-item:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.08); }
+    .cover-meta-item:last-child { border-bottom: none; grid-column: span 2; }
+    .section { padding: 20px 16px; border-radius: 8px; margin-bottom: 16px; }
+    .section-title { font-size: 15px; }
+    .metrics-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+    .metric-value { font-size: 18px !important; }
+    table { display: block; overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; font-size: 12px; }
+    th { padding: 8px 10px; font-size: 10px; }
+    td { padding: 8px 10px; }
+    .two-col { grid-template-columns: 1fr; }
+    .chart-wrap { height: 200px !important; }
+    .highlight { font-size: 12px; padding: 12px 14px; }
+    .subsection-title { font-size: 13px; }
+    .action-item { flex-direction: column; gap: 8px; }
+    .color-bar { margin-bottom: 16px; }
+    .report-footer { flex-direction: column; gap: 8px; text-align: center; }
+  }
+  @media (max-width: 480px) {
+    .cover h1 { font-size: 18px; }
+    .cover-meta { grid-template-columns: 1fr; }
+    .cover-meta-item { border-right: none !important; grid-column: auto !important; }
+    .metric-value { font-size: 16px !important; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+<div class="color-bar"></div>
+<!-- COVER -->
+<div class="cover">
+<div class="cover-logo">
+<div class="cover-logo-circles"><div class="c1"></div><div class="c2"></div><div class="c3"></div></div>
+<div class="cover-logo-name">Katchingg Media — Google Ads for eCom</div>
+</div>
+<div class="cover-label">Rapport Mensuel de Performance</div>
+<h1>Colagea — Google Ads</h1>
+<div class="cover-sub">Avril 2026 vs Mars 2026</div>
+<div class="cover-meta">
+<div class="cover-meta-item"><div class="label">Compte</div><div class="value">Colagea EUR</div></div>
+<div class="cover-meta-item"><div class="label">Période</div><div class="value">1–30 avril 2026</div></div>
+<div class="cover-meta-item"><div class="label">Comparé à</div><div class="value">1–31 mars 2026</div></div>
+<div class="cover-meta-item"><div class="label">Préparé par</div><div class="value">Diana</div></div>
+<div class="cover-meta-item"><div class="label">Revu par</div><div class="value">Charles Perot</div></div>
+</div>
+</div>
+<!-- 1. ACCOUNT OVERVIEW -->
+<div class="section">
+<div class="section-header"><div class="section-number">1</div><div class="section-title">Account Overview — Avril 2026</div></div>
+<div class="metrics-grid">
+<div class="metric-card blue"><div class="metric-label">Dépenses totales</div><div class="metric-value">€8,475</div><div class="metric-change up">▲ +2.6% vs mars</div></div>
+<div class="metric-card red"><div class="metric-label">Conv. Value</div><div class="metric-value">€41,408.10</div><div class="metric-change down">▼ -16.75% vs mars</div></div>
+<div class="metric-card red"><div class="metric-label">Account ROAS</div><div class="metric-value">4.89x</div><div class="metric-change down">▼ -18.86% vs mars</div></div>
+<div class="metric-card red"><div class="metric-label">Conversions</div><div class="metric-value">535.69</div><div class="metric-change down">▼ -15.78% vs mars</div></div>
+<div class="metric-card blue"><div class="metric-label">Clics</div><div class="metric-value">15,980</div><div class="metric-change up">▲ +6.7% vs mars</div></div>
+<div class="metric-card blue"><div class="metric-label">Impressions</div><div class="metric-value">1,316,483</div><div class="metric-change up">▲ +3.0% vs mars</div></div>
+</div>
+<div class="highlight info"><strong>Executive summary :</strong> Avril est resté profitable à 4.89x ROAS, mais l’efficacité s’est comprimée car les dépenses ont augmenté pendant que la conv. value reculait de -16.75%. Les principaux leviers de croissance pour mai sont clairs et contrôlés : récupérer la demande Brand Search perdue à cause du budget, séparer NB Shopping Hommes et Femmes pour corriger l’écart d’allocation, et donner à PMax des signaux d’apprentissage plus propres après le refresh créatif. Le compte ne fait pas face à un problème de demande — il fait face à une opportunité de structure et de couverture d’enchères.</div>
+<div class="subsection" style="margin-top: 24px;">
+<div class="subsection-title">Revenus Shopify par produit</div>
+<table>
+<thead><tr><th>Produit</th><th class="td-right">Revenus avril</th><th class="td-right">vs période précédente</th></tr></thead>
+<tbody>
+<tr><td><strong>Technologie Capillaire Micro-infuse® Homme</strong> — Hero product</td><td class="td-right"><strong>€54,000</strong></td><td class="td-right" style="color:#c0392b;">-1.3%</td></tr>
+<tr><td>Micro-infusion capillaire Colagea® Femme</td><td class="td-right"><strong>€16,400</strong></td><td class="td-right" style="color:var(--green);">+7%</td></tr>
+</tbody>
+</table>
+</div>
+<div class="subsection">
+<div class="subsection-title">Résumé des campagnes — Avril vs Mars</div>
+<div class="chart-legend">
+<span class="legend-item"><span class="legend-dot" style="background:var(--blue);"></span>Avril 2026 — Conv. Value (€)</span>
+<span class="legend-item"><span class="legend-dot" style="background:#c8c6be;"></span>Mars 2026 — Conv. Value (€)</span>
+</div>
+<div class="chart-wrap" style="height:240px;"><canvas id="revenueChart"></canvas></div>
+<p style="font-size:11px;color:#aaa;margin-top:6px;">* PMax lancé le 10 mars — seule la barre d’avril est affichée pour PMax (pas de période de mars complète comparable).</p>
+<table style="margin-top:20px;">
+<thead>
+<tr>
+<th>Campagne</th>
+<th class="td-right">Spend avril</th>
+<th class="td-right">Conv. Value avril</th>
+<th class="td-right">ROAS avril</th>
+<th class="td-right">ROAS mars</th>
+<th class="td-right">Conv. avril</th>
+<th class="td-right">Cost/Conv. avril</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>FR Brand Shopping</strong></td>
+<td class="td-right">€356</td>
+<td class="td-right">€15,842.22</td>
+<td class="td-right" style="color:var(--green);font-weight:700;">44.46x</td>
+<td class="td-right" style="color:#888;">33.0x</td>
+<td class="td-right">203</td>
+<td class="td-right">€1.76</td>
+</tr>
+<tr>
+<td><strong>FR NB Shopping All</strong></td>
+<td class="td-right">€5,683</td>
+<td class="td-right">€10,976.25</td>
+<td class="td-right" style="color:#c0392b;font-weight:700;">1.93x</td>
+<td class="td-right" style="color:#888;">2.62x</td>
+<td class="td-right">148.05</td>
+<td class="td-right">€38.39</td>
+</tr>
+<tr>
+<td><strong>FR Brand Search</strong></td>
+<td class="td-right">€912</td>
+<td class="td-right">€9,346</td>
+<td class="td-right" style="color:#c0392b;font-weight:700;">10.24x</td>
+<td class="td-right" style="color:#888;">13.33x</td>
+<td class="td-right">116</td>
+<td class="td-right">€7.86</td>
+</tr>
+<tr>
+<td><strong>FR NB PMax Assets Only</strong></td>
+<td class="td-right">€1,523</td>
+<td class="td-right">€5,244</td>
+<td class="td-right" style="color:var(--green);font-weight:700;">3.44x</td>
+<td class="td-right" style="color:#888;">—*</td>
+<td class="td-right">69</td>
+<td class="td-right">€22.20</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- 2. SHOPIFY — kept minimal, key context only -->
+<!-- 3. CAMPAIGN DEEP DIVES -->
+<div class="section">
+<div class="section-header"><div class="section-number">2</div><div class="section-title">Analyse détaillée des campagnes</div></div>
+<!-- 3.1 FR Brand Shopping -->
+<div class="subsection">
+<div class="subsection-title">2.1  FR Brand Shopping — Manual CPC | €50/day | Max CPC €0.30</div>
+<div class="metrics-grid">
+<div class="metric-card red"><div class="metric-label">Dépenses</div><div class="metric-value" style="font-size:18px;">€356</div><div class="metric-change down">▼ -36.8% vs mars</div></div>
+<div class="metric-card green"><div class="metric-label">ROAS</div><div class="metric-value" style="font-size:18px;">44.46x</div><div class="metric-change up">▲ +34.73% vs mars</div></div>
+<div class="metric-card red"><div class="metric-label">Conv. Value</div><div class="metric-value" style="font-size:18px;">€15,842.22</div><div class="metric-change down">▼ -14.79% vs mars</div></div>
+<div class="metric-card green"><div class="metric-label">Cost/Conv.</div><div class="metric-value" style="font-size:18px;">€1.76</div><div class="metric-change up">▼ -25% ✓ amélioration</div></div>
+</div>
+<p style="font-size:13px;color:#444;margin-bottom:12px;">FR Brand Shopping reste l’une des campagnes les plus solides du compte avec 44.46x ROAS et €1.76 de cost/conv. Le spend a baissé de -36.8% (€563 → €356), mais l’efficacité s’est fortement améliorée avec un ROAS en hausse de +34.73% et un CTR en hausse de +60.3% (2.67% vs 1.67%). La campagne n’est pas faible — elle est très efficace et dispose simplement d’une marge pour capter davantage d’impressions Brand Shopping en améliorant l’auction rank.</p>
+<div class="highlight success"><strong>Très forte efficacité avec un potentiel clair via l’amélioration du rank.</strong> Lost IS to rank est à 80.24%, ce qui signifie que nous manquons des impressions Brand Shopping parce que l’auction rank n’est pas assez fort — et non parce que la qualité du trafic est faible. Comme l’Avg. CPC est seulement de €0.15 face à un Max CPC de €0.30, la prochaine étape est un test d’enchère contrôlé sur les SKUs brand les plus forts plutôt qu’une hausse de budget large. Action : augmenter le Max CPC de €0.30 à €0.40 uniquement sur les produits avec un ROAS supérieur à 30x, tout en surveillant Search IS, Lost IS to rank, ROAS et cost/conv avant de scaler davantage.</div>
+<div style="margin-top:16px;">
+<div class="subsection-title" style="font-size:13px;">Top produits par ROAS — Avril</div>
+<table>
+<thead><tr><th>Produit</th><th class="td-right">Dépenses</th><th class="td-right">Conv.</th><th class="td-right">ROAS</th><th class="td-right">Cost/Conv.</th></tr></thead>
+<tbody>
+<tr><td><strong>Homme Cure 1 mois</strong></td><td class="td-right">€138.69</td><td class="td-right">137.24</td><td class="td-right" style="color:var(--green);font-weight:700;">77.26x</td><td class="td-right">€1.01</td></tr>
+<tr><td><strong>Femme Cure 1 mois</strong></td><td class="td-right">€4.98</td><td class="td-right">4.00</td><td class="td-right" style="color:var(--green);font-weight:700;">69.67x</td><td class="td-right">€1.25</td></tr>
+<tr><td><strong>Homme Cure 4 mois</strong></td><td class="td-right">€1.87</td><td class="td-right">1.00</td><td class="td-right" style="color:var(--green);font-weight:700;">54.42x</td><td class="td-right">€1.87</td></tr>
+<tr><td><strong>Homme Cure 2 mois</strong></td><td class="td-right">€10.17</td><td class="td-right">3.83</td><td class="td-right" style="color:var(--green);font-weight:700;">33.56x</td><td class="td-right">€2.65</td></tr>
+<tr><td><strong>Homme Cure 1 mois</strong></td><td class="td-right">€6.79</td><td class="td-right">2.50</td><td class="td-right" style="color:var(--green);font-weight:700;">32.14x</td><td class="td-right">€2.72</td></tr>
+</tbody>
+</table>
+<p style="font-size:11px;color:#aaa;margin-top:6px;">Source : product report uploadé, 1–30 avril vs 2–31 mars.</p>
+</div>
+<div style="margin-top:16px;">
+<div class="subsection-title" style="font-size:13px;">Points clés SQR</div>
+<table>
+<thead><tr><th>Search term</th><th class="td-center">Action</th><th>Note</th></tr></thead>
+<tbody>
+<tr><td>colagea / collagea (misspellings)</td><td class="td-center"><span class="badge badge-green">Conserver</span></td><td>Convertit à 73.5x ROAS</td></tr>
+<tr><td>avis colagea cheveux</td><td class="td-center"><span class="badge badge-green">Conserver</span></td><td>140.7x ROAS — requête avis à forte intention</td></tr>
+<tr><td>colagea micro infusion en pharmacie</td><td class="td-center"><span class="badge badge-green">Conserver</span></td><td>268.9x ROAS — forte intention d’achat</td></tr>
+<tr><td>gommage / oenobiol / minoxidil / exosome variants</td><td class="td-center"><span class="badge badge-red">Négatif</span></td><td>0 conversion — non lié à la marque</td></tr>
+<tr><td>capilla derma (multiple variants)</td><td class="td-center"><span class="badge badge-red">Négatif</span></td><td>Concurrent direct — à ajouter en negative list</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- 3.2 FR NB Shopping All -->
+<div class="subsection">
+<div class="subsection-title">2.2  FR NB Shopping All — Manual CPC | €300/day | Ad groups: Hommes &amp; Femmes</div>
+<div class="metrics-grid">
+<div class="metric-card blue"><div class="metric-label">Dépenses</div><div class="metric-value" style="font-size:18px;">€5,683</div><div class="metric-change neutral">≈ Stable (-0.6%)</div></div>
+<div class="metric-card red"><div class="metric-label">ROAS</div><div class="metric-value" style="font-size:18px;">1.93x</div><div class="metric-change down">▼ -26.37% vs mars</div></div>
+<div class="metric-card red"><div class="metric-label">Conv. Value</div><div class="metric-value" style="font-size:18px;">€10,976.25</div><div class="metric-change down">▼ -26.82% vs mars</div></div>
+<div class="metric-card red"><div class="metric-label">Cost/Conv.</div><div class="metric-value" style="font-size:18px;">€38.39</div><div class="metric-change down">▲ +30.73%</div></div>
+</div>
+<p style="font-size:13px;color:#444;margin-bottom:12px;">Le spend est resté stable à €5,683 tandis que la conv. value a baissé de -26.82% et que le cost/conv s’est détérioré de +30.73%. Les impressions ont augmenté de +8.1% et les clicks de +2%, ce qui signifie que le volume de trafic a progressé mais que l’efficacité de conversion a fortement reculé. Lost IS to rank est passé de 35.43% à 48.07% — indiquant que nos enchères sont plus souvent dépassées en avril, particulièrement côté Hommes où Lost IS to rank a atteint 45.60%. La solution n’est pas de maintenir les deux segments sous un budget partagé ; la campagne doit être séparée en campagnes dédiées Homme et Femme, puis les bids augmentés sélectivement sur les SKUs les plus forts avec ROAS élevé et Lost IS to rank élevé.</p>
+<div style="margin-top:14px;">
+<div class="subsection-title" style="font-size:13px;">Split par ad group — Avril</div>
+<table>
+<thead><tr><th>Ad group</th><th class="td-right">Dépenses</th><th class="td-right">Conv. Value</th><th class="td-right">ROAS</th><th class="td-right">Conv.</th><th class="td-right">Cost/Conv.</th><th class="td-right">Lost IS Rank</th></tr></thead>
+<tbody>
+<tr>
+<td><strong>Hommes</strong> — Max CPC €0.80</td>
+<td class="td-right">€1,220 <span style="font-size:11px;color:#888;">(21.5%)</span></td>
+<td class="td-right">€2,771</td>
+<td class="td-right" style="color:#9a6800;font-weight:700;">2.27x</td>
+<td class="td-right">37.49</td>
+<td class="td-right">€32.54</td>
+<td class="td-right" style="color:#c0392b;text-align:right;">45.60%</td>
+</tr>
+<tr>
+<td><strong>Femmes</strong> — Max CPC €0.80</td>
+<td class="td-right">€4,464 <span style="font-size:11px;color:#888;">(78.5%)</span></td>
+<td class="td-right">€8,136</td>
+<td class="td-right" style="color:#c0392b;font-weight:700;">1.84x</td>
+<td class="td-right">110.56</td>
+<td class="td-right">€40.37</td>
+<td class="td-right" style="color:#c0392b;text-align:right;">48.76%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="highlight info"><strong>Opportunité d’allocation du budget partagé :</strong> Femmes consomme 78.5% des €300/jour à 1.84x ROAS tandis que Hommes ne reçoit que 21.5% à 2.27x ROAS. Le segment Homme est plus efficace mais actuellement sous-financé. Séparer la campagne donnera à chaque segment ses propres budgets et contrôles d’enchères, ce qui permettra de scaler Hommes avec plus de confiance tout en stabilisant Femmes séparément.</div>
+<div style="margin-top:16px;">
+<div class="subsection-title" style="font-size:13px;">Product groups — Hommes</div>
+<table>
+<thead><tr><th>Produit</th><th class="td-right">Clics</th><th class="td-right">Conv.</th><th class="td-right">ROAS</th><th class="td-right">Lost IS Rank</th></tr></thead>
+<tbody>
+<tr><td>Cure 1 mois</td><td class="td-right">208</td><td class="td-right">7.36</td><td class="td-right" style="color:var(--green);">4.51x</td><td class="td-right" style="color:#c0392b;font-weight:600;">66.55%</td></tr>
+<tr><td>Cure 2 mois</td><td class="td-right">271</td><td class="td-right">9.94</td><td class="td-right" style="color:var(--green);">3.77x</td><td class="td-right">35.78%</td></tr>
+<tr><td>Cure 4 mois + Brosse</td><td class="td-right">250</td><td class="td-right">4.86</td><td class="td-right" style="color:#9a6800;">2.51x</td><td class="td-right">40.33%</td></tr>
+</tbody>
+</table>
+</div>
+<div style="margin-top:14px;">
+<div class="subsection-title" style="font-size:13px;">Product groups — Femmes</div>
+<table>
+<thead><tr><th>Produit</th><th class="td-right">Clics</th><th class="td-right">Conv.</th><th class="td-right">ROAS</th><th class="td-right">Lost IS Rank</th></tr></thead>
+<tbody>
+<tr><td>Cure 1 mois — main SKU</td><td class="td-right">1,611</td><td class="td-right">27.35</td><td class="td-right" style="color:#9a6800;">1.85x</td><td class="td-right">48.72%</td></tr>
+<tr><td>Cure 2 mois</td><td class="td-right">782</td><td class="td-right">8.76</td><td class="td-right" style="color:#9a6800;">1.36x</td><td class="td-right">37.75%</td></tr>
+<tr><td>Cure 4 mois</td><td class="td-right">428</td><td class="td-right">3.06</td><td class="td-right" style="color:#c0392b;font-weight:700;">0.73x</td><td class="td-right">41.18%</td></tr>
+</tbody>
+</table>
+<div class="highlight warning"><strong>Contexte du product group :</strong> La baisse sur Femme Cure 4 mois ne doit pas être traitée comme un feed mismatch. Le changement est principalement lié au nettoyage des product groups, où les produits “Everything else” appartenant au segment opposé ont été pausés dans chaque ad group. C’est pourquoi la prochaine étape consiste à finaliser le split Homme/Femme, puis à évaluer chaque SKU une fois la structure propre.</div>
+</div>
+<div style="margin-top:16px;">
+<div class="subsection-title" style="font-size:13px;">Travail SQR terminé</div>
+<table>
+<thead><tr><th>Ad group</th><th>Negatives ajoutés</th><th>Type</th></tr></thead>
+<tbody>
+<tr><td><strong>Femmes</strong></td><td>-homme, -man, -men, -monsieur, -barbe, -beard, -minoxidil, -propecia, -rogaine, -finastéride, -biotine, -ducray, -kerastase, -oral, -pillule, -comprimé, -forcapil, -alostil, -luxeol, -vichy, -"comment faire", -[chute de cheveux], -[perte de cheveux], -[dht blocker], -[repousse cheveux], -[cheveux qui tombent]</td><td>Broad / phrase / exact</td></tr>
+<tr><td><strong>Hommes</strong></td><td>-femme, -femmes, -fille, -girl, -madame, -woman, -women, -pellicule, -perfectil, -shampoing, -"aliment qui font pousser"</td><td>Broad / phrase</td></tr>
+<tr><td><strong>Les deux</strong></td><td>"Everything else in All products" exclu. Max CPC réinitialisé par défaut.</td><td>Product group</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- 3.3 FR Brand Search -->
+<div class="subsection">
+<div class="subsection-title">2.3  FR Brand Search — Manual CPC | €30/day | Limited by budget</div>
+<div class="metrics-grid">
+<div class="metric-card blue"><div class="metric-label">Dépenses</div><div class="metric-value" style="font-size:18px;">€912</div><div class="metric-change up">▲ +3.5% vs March</div></div>
+<div class="metric-card red"><div class="metric-label">ROAS</div><div class="metric-value" style="font-size:18px;">10.24x</div><div class="metric-change down">▼ était 13.33x en mars</div></div>
+<div class="metric-card red"><div class="metric-label">Conv. Value</div><div class="metric-value" style="font-size:18px;">€9,346</div><div class="metric-change down">▼ -21.4% vs mars</div></div>
+<div class="metric-card red"><div class="metric-label">Lost IS (Budget)</div><div class="metric-value" style="font-size:18px;">66.78%</div><div class="metric-change down">▲ +9.9%</div></div>
+</div>
+<p style="font-size:13px;color:#444;margin-bottom:12px;">Brand Search convertit à 10.24x ROAS avec un CTR de 29.22% (+18% vs mars) — la qualité des ads est solide. La baisse de conv. value (-21.4%) et des conversions (-21.4%) est entièrement causée par l’épuisement du budget : 66.78% de toutes les impressions Brand Search sont manquées chaque jour parce que le plafond de €30/jour est atteint. Ce n’est pas un problème de qualité ni de bid.</p>
+<div style="margin-top:14px;">
+<div class="subsection-title" style="font-size:13px;">Split par ad group — Avril</div>
+<table>
+<thead><tr><th>Ad group</th><th class="td-right">Dépenses</th><th class="td-right">ROAS</th><th class="td-right">Conv.</th><th class="td-right">CTR</th></tr></thead>
+<tbody>
+<tr><td><strong>Colagea — exact</strong> ([colagea] + "colagea")</td><td class="td-right">€632</td><td class="td-right" style="color:var(--green);font-weight:700;">11.45x</td><td class="td-right">90.34</td><td class="td-right">37.56%</td></tr>
+<tr><td><strong>Colagea — avis</strong> ([colagea avis] + "colagea avis")</td><td class="td-right">€280</td><td class="td-right" style="color:#9a6800;font-weight:700;">7.51x</td><td class="td-right">25.77</td><td class="td-right">17.52%</td></tr>
+</tbody>
+</table>
+</div>
+<div style="margin-top:16px;">
+<div class="subsection-title" style="font-size:13px;">Auction insights — concurrents sur les termes brand</div>
+<table>
+<thead><tr><th>Concurrent</th><th class="td-right">Imp. Share</th><th class="td-right">Position above rate</th><th class="td-right">Top of page</th><th class="td-right">Outranking share</th></tr></thead>
+<tbody>
+<tr><td><strong>Colagea (vous)</strong></td><td class="td-right" style="color:var(--green);font-weight:700;">31.27%</td><td class="td-right">—</td><td class="td-right" style="color:var(--green);">87.08%</td><td class="td-right">—</td></tr>
+<tr><td>arbuti.com</td><td class="td-right">&lt;10%</td><td class="td-right" style="color:#c0392b;font-weight:700;">20.15%</td><td class="td-right">73.43%</td><td class="td-right">30.75%</td></tr>
+<tr><td>amazon.fr</td><td class="td-right">&lt;10%</td><td class="td-right">2.59%</td><td class="td-right">66.90%</td><td class="td-right">31.21%</td></tr>
+<tr><td>capilladerma.com</td><td class="td-right">&lt;10%</td><td class="td-right">8.56%</td><td class="td-right">62.81%</td><td class="td-right">31.11%</td></tr>
+</tbody>
+</table>
+<div class="highlight info"><strong>Brand Search est actuellement limité par le budget.</strong> Colagea capte 31.27% de Search IS et perd 66.78% des impressions disponibles à cause du budget. Comme la campagne reste efficace avec un ROAS de 10.24x, augmenter le budget quotidien de €30/jour à €80–100/jour devrait aider à récupérer davantage de demande brand tout en maintenant une forte rentabilité.</div>
+</div>
+<div style="margin-top:16px;">
+<div class="subsection-title" style="font-size:13px;">Top ad assets — Avril</div>
+<table>
+<thead><tr><th>Asset</th><th>Type</th><th class="td-right">Conv.</th><th class="td-right">ROAS</th><th class="td-right">CVR</th><th class="td-center">Signal</th></tr></thead>
+<tbody>
+<tr><td>N°1 sur les Soins Capillaires</td><td>Headline</td><td class="td-right">18.69</td><td class="td-right" style="color:var(--green);">11.08x</td><td class="td-right">12.38%</td><td class="td-center"><span class="badge badge-green">Meilleur</span></td></tr>
+<tr><td>Micro-Infusion Capillaire</td><td>Headline</td><td class="td-right">11.40</td><td class="td-right" style="color:var(--green);">9.93x</td><td class="td-right">12.81%</td><td class="td-center"><span class="badge badge-green">Fort</span></td></tr>
+<tr><td>Colagea® - Leurs Avis</td><td>Headline (pinned H1)</td><td class="td-right">1.00</td><td class="td-right" style="color:var(--green);">46.18x</td><td class="td-right">50.00%</td><td class="td-center"><span class="badge badge-green">High CVR</span></td></tr>
+<tr><td>Découvrez Maintenant</td><td>Headline</td><td class="td-right" style="color:#c0392b;">0</td><td class="td-right" style="color:#c0392b;">0x</td><td class="td-right">0%</td><td class="td-center"><span class="badge badge-red">Remplacer</span></td></tr>
+<tr><td>Lauréat Innovation Beauté 2025</td><td>Headline</td><td class="td-right" style="color:#c0392b;">0</td><td class="td-right" style="color:#c0392b;">0x</td><td class="td-right">0%</td><td class="td-center"><span class="badge badge-red">Remplacer</span></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- 3.4 PMax — April only -->
+<div class="subsection">
+<div class="subsection-title">2.4  FR NB PMax Assets Only — Maximize Conversions | €100/day | Lancée le 10 mars</div>
+<div class="highlight info">Cette campagne a été lancée le 10 mars 2026 — il existe moins de 3 semaines de données en mars. Aucune comparaison mars vs avril n’est affichée ici. Les chiffres d’avril ci-dessous représentent le premier mois calendaire complet et servent de baseline pour la suite.</div>
+<div class="metrics-grid" style="margin-top:16px;">
+<div class="metric-card blue"><div class="metric-label">Dépenses</div><div class="metric-value" style="font-size:18px;">€1,523</div><div class="metric-change neutral">Baseline avril</div></div>
+<div class="metric-card green"><div class="metric-label">ROAS</div><div class="metric-value" style="font-size:18px;">3.44x</div><div class="metric-change neutral">Baseline avril</div></div>
+<div class="metric-card blue"><div class="metric-label">Conv. Value</div><div class="metric-value" style="font-size:18px;">€5,244</div><div class="metric-change neutral">Baseline avril</div></div>
+<div class="metric-card green"><div class="metric-label">Conversions</div><div class="metric-value" style="font-size:18px;">68.58</div><div class="metric-change neutral">Baseline avril</div></div>
+<div class="metric-card green"><div class="metric-label">Cost/Conv.</div><div class="metric-value" style="font-size:18px;">€22.20</div><div class="metric-change neutral">Baseline avril</div></div>
+<div class="metric-card blue"><div class="metric-label">Clics</div><div class="metric-value" style="font-size:18px;">4,301</div><div class="metric-change neutral">Baseline avril</div></div>
+</div>
+<div style="margin-top:16px;">
+<div class="subsection-title" style="font-size:13px;">Split par asset group — Avril</div>
+<table>
+<thead><tr><th>Asset group</th><th class="td-right">Dépenses</th><th class="td-right">Conv.</th><th class="td-right">Cost/Conv.</th><th class="td-right">Clics</th><th class="td-right">CTR</th></tr></thead>
+<tbody>
+<tr>
+<td><strong>Hommes</strong><br/><small style="color:#888;">Themes : repousse homme, arreter chute, micro infusion, calvitie</small></td>
+<td class="td-right">€1,123</td>
+<td class="td-right"><strong>53.37</strong></td>
+<td class="td-right">€21.04</td>
+<td class="td-right">3,439</td>
+<td class="td-right">3.07%</td>
+</tr>
+<tr>
+<td><strong>Femmes</strong><br/><small style="color:#888;">Themes : perte cheveux femme, chute, densifier, epaissir, repousse femme</small></td>
+<td class="td-right">€400</td>
+<td class="td-right"><strong>15.21</strong></td>
+<td class="td-right">€26.29</td>
+<td class="td-right">862</td>
+<td class="td-right">2.13%</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight danger"><strong>Sous-alimentation de l’algorithme Femmes :</strong> 15 conversions en avril est bien en dessous des ~50/mois que Google recommande pour que Maximize Conversions apprenne efficacement. C’est la cause du statut "limited by bid strategy". Avec les deux asset groups dans une seule campagne, l’algorithme reçoit des signaux mélangés et ne peut pas optimiser par segment. Séparer en deux campagnes dédiées en mai est la bonne correction.</div>
+</div>
+<div style="margin-top:16px;">
+<div class="subsection-title" style="font-size:13px;">Répartition par channel — Avril</div>
+<table>
+<thead><tr><th>Canal</th><th class="td-right">Clics</th><th class="td-right">Conv.</th><th class="td-right">Conv. Value</th><th class="td-right">Dépenses</th><th class="td-right">ROAS</th></tr></thead>
+<tbody>
+<tr><td><strong>Google Search</strong></td><td class="td-right">976</td><td class="td-right"><strong>37.80</strong></td><td class="td-right">€2,992</td><td class="td-right">€1,091</td><td class="td-right" style="color:var(--green);">2.74x</td></tr>
+<tr><td>Discover</td><td class="td-right">2,562</td><td class="td-right">20.52</td><td class="td-right">€1,527</td><td class="td-right">€240</td><td class="td-right" style="color:var(--green);font-weight:700;">6.36x</td></tr>
+<tr><td>YouTube</td><td class="td-right">319</td><td class="td-right">5.26</td><td class="td-right">€377</td><td class="td-right">€106</td><td class="td-right" style="color:var(--green);">3.55x</td></tr>
+<tr><td>Google Display</td><td class="td-right">420</td><td class="td-right">5.00</td><td class="td-right">€347</td><td class="td-right">€80</td><td class="td-right" style="color:#9a6800;">4.32x</td></tr>
+<tr><td>Search partners</td><td class="td-right">24</td><td class="td-right" style="color:#c0392b;">0</td><td class="td-right">€0</td><td class="td-right">€5.57</td><td class="td-right" style="color:#c0392b;">0x</td></tr>
+</tbody>
+</table>
+<div class="highlight success"><strong>Discover est le channel le plus efficace</strong> à 6.36x ROAS sur €240 de spend. Google Search génère le plus de conversions brutes (37.80) mais à 2.74x. Search partners a généré 0 conversion sur €5.57 — à surveiller pour exclusion.</div>
+</div>
+<div style="margin-top:16px;">
+<div class="subsection-title" style="font-size:13px;">Nouveaux creatives uploadés — 1–3 avril</div>
+<p style="font-size:13px;color:#444;margin-bottom:10px;">11 nouveaux assets ajoutés à l’asset group Femmes : 5 images carrées + 1 image portrait (1er avril) et 1 carré supplémentaire + 5 vidéos YouTube (soir du 1er avril). 4 video creatives ont ensuite été refusés — voir la section 5 pour les détails complets et les directives de correction.</p>
+<div class="highlight danger"><strong>4 vidéos Colagea refusées :</strong> Femmes 302.1 &amp; 420.1, Hommes 301.1 &amp; 101.3 — pour "Unreliable Claims" (Allégations peu fiables). Brief de correction envoyé à Vincent et Armela le 3 avril.</div>
+<div style="margin-top:14px;">
+<p style="font-size:13px;color:#444;margin-bottom:8px;"><strong>Negative lists appliquées à la campagne PMax :</strong></p>
+<ul style="font-size:13px;color:#444;padding-left:20px;">
+<li style="margin-bottom:4px;">Irrelevant Medical/Hygiene Issues — list</li>
+<li style="margin-bottom:4px;">Specific Pharma Formats — list</li>
+<li style="margin-bottom:4px;">Irrelevant or Low Intent — list</li>
+<li style="margin-bottom:4px;">Hygiene &amp; Low-Value Accessories — list</li>
+<li style="margin-bottom:4px;">[cologea] — exact negative (faute brand empêchant le cross-trigger)</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!-- 4. OPTIMISATIONS -->
+<div class="section">
+<div class="section-header"><div class="section-number">3</div><div class="section-title">Optimisations majeures — Avril 2026</div></div>
+<ul style="list-style:none;padding:0;margin:0;">
+<li style="padding:12px 0;border-bottom:0.5px solid #f0ede8;font-size:13px;color:#333;display:flex;gap:12px;align-items:flex-start;"><span style="color:#0085F7;font-weight:700;flex-shrink:0;">●</span><span><strong>PMax Femmes — nouveaux creatives uploadés :</strong> 5 images carrées, 1 image portrait, 1 carré supplémentaire et 5 vidéos YouTube ajoutés à l’asset group Femmes. Premier refresh créatif majeur pour ce segment depuis le lancement.</span></li>
+<li style="padding:12px 0;border-bottom:0.5px solid #f0ede8;font-size:13px;color:#333;display:flex;gap:12px;align-items:flex-start;"><span style="color:#0085F7;font-weight:700;flex-shrink:0;">●</span><span><strong>Brief de refus créatif envoyé à Vincent et Armela :</strong> Suite aux refus Google sur 4 vidéos Colagea (Femmes 302.1 &amp; 420.1, Hommes 301.1 &amp; 101.3), un brief détaillé a été envoyé couvrant chaque raison de refus et des directives de correction spécifiques pour la catégorie hair care / health policy.</span></li>
+<li style="padding:12px 0;border-bottom:0.5px solid #f0ede8;font-size:13px;color:#333;display:flex;gap:12px;align-items:flex-start;"><span style="color:#0085F7;font-weight:700;flex-shrink:0;">●</span><span><strong>NB Shopping Femmes — SQR hygiene :</strong> 26 broad + 1 phrase + 5 exact negatives ajoutés. Exclusion des termes orientés hommes, des termes pharmaceutiques/concurrents et des requêtes à intention non alignée. Product group "Everything else" exclu et max CPC réinitialisé par défaut.</span></li>
+<li style="padding:12px 0;font-size:13px;color:#333;display:flex;gap:12px;align-items:flex-start;"><span style="color:#0085F7;font-weight:700;flex-shrink:0;">●</span><span><strong>NB Shopping Hommes — SQR hygiene :</strong> 10 broad + 1 phrase negatives ajoutés. Exclusion des termes orientés femmes et hors sujet. Product group "Everything else" exclu et max CPC réinitialisé par défaut.</span></li>
+</ul>
+</div>
+<!-- 5. ISSUES -->
+<div class="section">
+<div class="section-header"><div class="section-number">4</div><div class="section-title">Problèmes rencontrés et actions prises</div></div>
+<div class="action-item">
+<div style="flex-shrink:0;"><span class="badge badge-red">Critique</span></div>
+<div>
+<div class="action-title">Brand Search limitée par le budget — les concurrents captent les requêtes brand</div>
+<div class="action-desc">Le plafond de €30/jour cause 66.78% d’IS perdue à cause du budget. arbuti.com dépasse Colagea sur les termes brand 20.15% du temps. amazon.fr et capilladerma.com apparaissent également. Estimation : ~45 conversions manquées en avril uniquement à cause du budget. Action : hausse du budget à €80–100/jour confirmée comme priorité #1 de mai.</div>
+</div>
+</div>
+<div class="action-item">
+<div style="flex-shrink:0;"><span class="badge badge-amber">Élevé</span></div>
+<div>
+<div class="action-title">Budget partagé NB Shopping — le segment Hommes plus fort est sous-financé</div>
+<div class="action-desc">Femmes consomme 78.5% des €300/jour avec une efficacité plus faible. Femme Cure 4 mois est aussi passée de 2.13x à 0.73x ROAS — probablement un mismatch de prix CHF/EUR dans le product feed Merchant Center. Actions prises : SQR hygiene terminée. Split de campagne confirmé pour mai. Les product groups devront être réévalués après un split Homme/Femme propre.</div>
+</div>
+</div>
+<div class="action-item">
+<div style="flex-shrink:0;"><span class="badge badge-amber">Élevé</span></div>
+<div>
+<div class="action-title">4 video creatives Colagea refusés — Unreliable Claims</div>
+<div class="action-desc">Femmes 302.1 &amp; 420.1, Hommes 301.1 &amp; 101.3 refusés. Hair care est traité comme une catégorie health/medical — Google interdit les promesses de résultats, les visuels before/after, les timelines fixes et le vocabulaire médical sans certification. Action : brief de correction envoyé à Vincent et Armela avec des directives spécifiques par asset.</div>
+</div>
+</div>
+<div class="action-item">
+<div style="flex-shrink:0;"><span class="badge badge-amber">Élevé</span></div>
+<div>
+<div class="action-title">PMax — limited by bid strategy à cause du manque de conversions Femmes</div>
+<div class="action-desc">Femmes a généré seulement 15 conversions en avril vs ~50 minimum recommandé pour que Maximize Conversions apprenne correctement. Les deux asset groups partageant une seule campagne envoient des signaux mélangés à l’algorithme. Action : split en deux campagnes PMax dédiées (Homme et Femme) confirmé pour mai.</div>
+</div>
+</div>
+</div>
+<!-- 6. CONSOLIDATED ACTION PLAN -->
+<div class="section">
+<div class="section-header"><div class="section-number" style="background:var(--dark);">★</div><div class="section-title">Plan d’action consolidé — Résumé complet</div></div>
+<p style="font-size:13px;color:#555;margin-bottom:16px;">Toutes les actions ont été confirmées avec Charles Perot. Ce tableau résume chaque action identifiée dans le rapport complet.</p>
+<div class="subsection-title">Mai 2026 — actions confirmées</div>
+<table style="margin-bottom:24px;">
+<thead><tr><th>Priorité</th><th>Action</th><th>Responsable</th><th>Résultat attendu</th></tr></thead>
+<tbody>
+<tr><td><span class="badge badge-red">Urgent</span></td><td><strong>Budget Brand Search : €30 → €80–100/jour</strong></td><td>Diana</td><td>Récupérer ~45 conv. manquées/mois. Empêcher arbuti.com et amazon.fr de gagner sur les termes brand.</td></tr>
+<tr><td><span class="badge badge-red">Urgent</span></td><td><strong>Séparer NB Shopping en campagnes Homme + Femme distinctes</strong></td><td>Diana</td><td>Budgets et contrôles de bid indépendants par segment. Investiguer le problème feed CHF de Femme Cure 4 mois avant le split.</td></tr>
+<tr><td><span class="badge badge-red">Urgent</span></td><td><strong>Séparer PMax en campagnes Homme + Femme distinctes</strong></td><td>Diana</td><td>Chaque campagne reçoit son propre signal de conversion et son propre budget. Résout l’alerte "limited by bid strategy".</td></tr>
+<tr><td><span class="badge badge-amber">Élevé</span></td><td><strong>Lancer NB Search — Micro-infusion Homme</strong></td><td>Diana</td><td>Le hero product (€54k Shopify) n’a pas de couverture Search. Ouvre un nouveau channel d’acquisition pour le produit principal.</td></tr>
+<tr><td><span class="badge badge-amber">Élevé</span></td><td><strong>Scaler les budgets NB Shopping + PMax (5 mai ✓)</strong></td><td>Diana</td><td>Terminé. Scaling budgetaire post-avril sur les campagnes NB.</td></tr>
+<tr><td><span class="badge badge-amber">Élevé</span></td><td><strong>SQR hygiene — account-wide (5 mai ✓)</strong></td><td>Diana</td><td>Terminé. Revue complète des search terms et refresh des negative keywords sur toutes les campagnes.</td></tr>
+<tr><td><span class="badge badge-amber">Élevé</span></td><td><strong>PMax app placement exclu (5 mai ✓)</strong></td><td>Diana</td><td>Terminé. App placements exclus pour supprimer le trafic Display de faible qualité.</td></tr>
+<tr><td><span class="badge badge-amber">Élevé</span></td><td><strong>Demander des replacement creatives conformes pour les 4 vidéos refusées</strong></td><td>Diana + Creative team</td><td>Relancer les asset groups refusés à pleine capacité. Les guidelines du brief de correction doivent être respectées.</td></tr>
+<tr><td><span class="badge badge-blue">Moyen</span></td><td><strong>Remplacer les headlines à zéro conversion dans Brand Search</strong></td><td>Diana</td><td>"Découvrez Maintenant" et "Lauréat Innovation Beauté 2025" — 0 conv. Remplacer par des alternatives axées intention/crédibilité.</td></tr>
+<tr><td><span class="badge badge-blue">Moyen</span></td><td><strong>Test de bid contrôlé Brand Shopping sur les top SKUs</strong></td><td>Diana</td><td>ROAS 44.46x avec Avg. CPC €0.15 et Max CPC €0.30. Tester Max CPC €0.40 uniquement sur les SKUs au-dessus de 30x ROAS pour améliorer Lost IS to rank tout en protégeant l’efficacité.</td></tr>
+</tbody>
+</table>
+<div class="subsection-title">Juin 2026 — pipeline</div>
+<table>
+<thead><tr><th>Action</th><th>Raison</th></tr></thead>
+<tbody>
+<tr><td><strong>Campagne concurrents</strong></td><td>Cibler les brand keywords arbuti.com, capilladerma.com, Vitalis, Laduti. Commencer petit, surveiller CVR et IS avant de scaler.</td></tr>
+<tr><td><strong>Campagne retargeting</strong> (Search ou Display)</td><td>Audiences warm — ont visité mais n’ont pas converti. Généralement ROAS élevé. Garder un budget séparé de l’acquisition cold.</td></tr>
+<tr><td><strong>Campagne Demand Gen</strong></td><td>Lancer uniquement lorsque les creatives conformes sont prêts et approuvés. Aucun DGen avec des assets refusés en diffusion.</td></tr>
+</tbody>
+</table>
+</div>
+<!-- 7. CREATIVE BRIEF -->
+<div class="section">
+<div class="section-header"><div class="section-number">5</div><div class="section-title">Brief créatif — Mai 2026</div></div>
+<p style="font-size:13px;color:#555;margin-bottom:16px;">Pour Vincent et Armela. Détails des assets refusés, guidelines de correction, nouveaux angles à tester et spécifications de formats pour Colagea.</p>
+<div class="subsection">
+<div class="subsection-title">Assets refusés — Avril 2026</div>
+<table>
+<thead><tr><th>Asset</th><th>Campaign / Asset group</th><th>Raison du refus</th><th class="td-center">Statut</th></tr></thead>
+<tbody>
+<tr><td><strong>302.1</strong></td><td>PMax — Femmes</td><td>Unreliable Claims — promesses de résultats et/ou visuel before/after</td><td class="td-center"><span class="badge badge-red">Refusé</span></td></tr>
+<tr><td><strong>420.1</strong></td><td>PMax — Femmes</td><td>Unreliable Claims — promesses de résultats et/ou visuel before/after</td><td class="td-center"><span class="badge badge-red">Refusé</span></td></tr>
+<tr><td><strong>301.1</strong></td><td>PMax — Hommes</td><td>Unreliable Claims — promesses de résultats ou vocabulaire médical</td><td class="td-center"><span class="badge badge-red">Refusé</span></td></tr>
+<tr><td><strong>101.3</strong></td><td>PMax — Hommes</td><td>Unreliable Claims — hook sensationnaliste ou claim avec timeline fixe</td><td class="td-center"><span class="badge badge-red">Refusé</span></td></tr>
+</tbody>
+</table>
+</div>
+<div class="subsection">
+<div class="subsection-title">Google policy — ce qu’il faut éviter (hair care = catégorie health/medical)</div>
+<div class="highlight danger">
+<strong>Ne jamais utiliser dans les creatives Colagea :</strong>
+<ul style="padding-left:18px;margin-top:10px;">
+<li style="margin-bottom:6px;">Visuels before/after côte à côte — les transformations dramatiques sont refusées comme trompeuses</li>
+<li style="margin-bottom:6px;">Promesses avec timeline fixe : "en 30 jours", "dès 2 semaines" — toute durée spécifique</li>
+<li style="margin-bottom:6px;">Vocabulaire médical sans certification : DHT, follicules, dermatologues, micro-infusion présenté comme claim médical</li>
+<li style="margin-bottom:6px;">Hooks sensationnalistes : "produit miracle", "Ma sœur croit que j’ai fait une greffe", "J’ai tout déclenché"</li>
+<li style="margin-bottom:0;">Claims statistiques : "8 sur 10", "cliniquement prouvé" sans certification officielle</li>
+</ul>
+</div>
+<div class="highlight success">
+<strong>À utiliser à la place :</strong>
+<ul style="padding-left:18px;margin-top:10px;">
+<li style="margin-bottom:6px;">Langage centré sur l’expérience : "nourrissant", "soin", "renforçateur", "prendre soin de vos cheveux"</li>
+<li style="margin-bottom:6px;">Angle routine : "utilisation régulière dans votre routine" — sans timeframe spécifique</li>
+<li style="margin-bottom:6px;">Focus sensoriel / texture : ressenti et apparence des cheveux — pas de claims de transformation</li>
+<li style="margin-bottom:6px;">Disclaimer à l’écran obligatoire : "Les résultats peuvent varier d’une personne à l’autre"</li>
+<li style="margin-bottom:0;">Narratif authentique sans stats — histoire d’expérience client, sans claims ("8 sur 10")</li>
+</ul>
+</div>
+</div>
+<div class="subsection">
+<div class="subsection-title">Nouveaux angles à tester — Mai 2026</div>
+<table>
+<thead><tr><th>Angle</th><th>Type de hook</th><th>Format requis</th><th>Segment</th></tr></thead>
+<tbody>
+<tr><td>Expérience texture cheveux — focus sensoriel, sans claims de transformation</td><td>Sensoriel / ressenti</td><td>Vertical 9:16 + Static 1:1</td><td>Hommes &amp; Femmes</td></tr>
+<tr><td>"Ma routine du soir" — rituel du soir</td><td>Lifestyle / routine</td><td>Vertical video 9:16</td><td>Femmes</td></tr>
+<tr><td>Narratif client réel — expérience, pas de stats</td><td>Témoignage UGC-style</td><td>Vertical video 9:16</td><td>Hommes &amp; Femmes</td></tr>
+<tr><td>Visuels clean product-only — sans text overlay</td><td>Product beauty shot</td><td>2048×1250 + 1152×2048</td><td>Les deux — PMax + feed</td></tr>
+<tr><td>Confiance Homme — identité post-routine, pas transformation</td><td>Lifestyle / identité</td><td>Vertical 9:16</td><td>Hommes</td></tr>
+</tbody>
+</table>
+</div>
+<div class="subsection">
+<div class="subsection-title">Spécifications de format — demandes urgentes</div>
+<table>
+<thead><tr><th>Format</th><th>Dimensions</th><th>Utilisé pour</th><th class="td-center">Priorité</th></tr></thead>
+<tbody>
+<tr><td>Vertical video</td><td>9:16 (1080×1920)</td><td>PMax YouTube &amp; Discover</td><td class="td-center"><span class="badge badge-red">Urgent</span></td></tr>
+<tr><td>Horizontal static</td><td>2048×1250</td><td>PMax, Display</td><td class="td-center"><span class="badge badge-red">Urgent</span></td></tr>
+<tr><td>Vertical static</td><td>1152×2048</td><td>PMax vertical placement</td><td class="td-center"><span class="badge badge-red">Urgent</span></td></tr>
+<tr><td>Square static</td><td>1:1 (1080×1080)</td><td>PMax Discover, Display</td><td class="td-center"><span class="badge badge-amber">Élevé</span></td></tr>
+<tr><td>Product-only image (sans texte)</td><td>1:1 + horizontal</td><td>PMax + product feed</td><td class="td-center"><span class="badge badge-amber">Élevé</span></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- 8. ROAS TARGETS -->
+<div class="section">
+<div class="section-header"><div class="section-number">6</div><div class="section-title">Objectifs directionnels ROAS — Mai 2026</div></div>
+<p style="font-size:13px;color:#555;margin-bottom:16px;">Comme ce rapport est émis le 19 mai 2026 et qu’il ne reste qu’environ 10 jours en mai, ces objectifs doivent être lus comme des objectifs directionnels de stabilisation plutôt que comme des engagements de performance mensuels complets. Juin sera le premier mois baseline propre après que les changements structurels aient eu assez de temps pour se stabiliser.</p>
+<table>
+<thead><tr><th>Campagne</th><th class="td-right">Réel avril</th><th class="td-right">Objectif mai</th><th>Raison</th></tr></thead>
+<tbody>
+<tr><td>FR Brand Shopping</td><td class="td-right">44.46x</td><td class="td-right" style="color:var(--green);font-weight:700;">≥ 35x</td><td>Le test de bid contrôlé devrait améliorer Lost IS to rank tout en protégeant la très forte efficacité</td></tr>
+<tr><td>FR Brand Search</td><td class="td-right">10.24x</td><td class="td-right" style="color:var(--green);font-weight:700;">≥ 8x</td><td>La hausse du budget devrait récupérer la demande brand perdue ; une légère compression du ROAS est acceptable pendant que le volume augmente</td></tr>
+<tr><td>FR NB Shopping — Hommes (new)</td><td class="td-right">2.27x*</td><td class="td-right" style="color:#9a6800;font-weight:700;">≥ 2.20x</td><td>Objectif directionnel pour les jours restants de mai après le split ; juin pourra porter l’objectif plus fort ≥2.5x</td></tr>
+<tr><td>FR NB Shopping — Femmes (new)</td><td class="td-right">1.84x*</td><td class="td-right" style="color:#9a6800;font-weight:700;">≥ 1.70x</td><td>Objectif court de stabilisation pour mai après SQR et split structurel ; l’objectif de juin pourra revenir à ≥2.0x</td></tr>
+<tr><td>FR NB PMax — Hommes (new)</td><td class="td-right">~2.47x†</td><td class="td-right" style="color:var(--green);font-weight:700;">≥ 2.20x</td><td>Objectif court pour mai pendant que le nouveau split se stabilise ; une campagne dédiée devrait améliorer la qualité d’apprentissage</td></tr>
+<tr><td>FR NB PMax — Femmes (new)</td><td class="td-right">~3.82x†</td><td class="td-right" style="color:#9a6800;font-weight:700;">≥ 1.80x</td><td>Objectif de période d’apprentissage pour les jours restants de mai ; nécessite des creatives conformes et plus de données de conversion pour se stabiliser</td></tr>
+<tr><td>FR NB Search — Homme (new)</td><td class="td-right">N/A</td><td class="td-right" style="color:#0085F7;font-weight:700;">≥ 1.50x</td><td>Objectif conservateur des 10 premiers jours d’apprentissage pour une nouvelle campagne Search sur le hero product</td></tr>
+</tbody>
+</table>
+<p style="font-size:11px;color:#aaa;margin-top:10px;">* Depuis l’ad group report.  † ROAS des asset groups PMax estimé à partir du spend et de la conv. value par asset group. Le ROAS campaign-level d’avril est de 3.44x.</p>
+</div>
+<!-- THANK YOU -->
+<div class="section" style="text-align:center;padding:60px 40px;background:var(--dark);border-radius:12px;margin-bottom:24px;">
+<div style="margin-bottom:32px;">
+<div style="width:60px;height:60px;position:relative;margin:0 auto 16px;">
+<div style="position:absolute;width:60px;height:60px;border-radius:50%;border:7px solid #0085F7;border-bottom-color:transparent;transform:rotate(-30deg);"></div>
+<div style="position:absolute;width:40px;height:40px;top:10px;left:10px;border-radius:50%;border:6px solid #138D5A;border-top-color:transparent;transform:rotate(30deg);"></div>
+<div style="position:absolute;width:20px;height:20px;top:20px;left:20px;border-radius:50%;background:#F8B83A;"></div>
+</div>
+<div style="font-size:13px;font-weight:700;color:rgba(255,255,255,0.5);letter-spacing:2px;text-transform:uppercase;">Katchingg Media</div>
+<div style="font-size:12px;color:rgba(255,255,255,0.3);margin-top:4px;">Google Ads for eCom</div>
+</div>
+<h2 style="font-size:28px;font-weight:700;color:#ffffff;margin-bottom:12px;">Merci pour votre confiance</h2>
+<p style="font-size:14px;color:rgba(255,255,255,0.5);max-width:480px;margin:0 auto 32px;line-height:1.7;">Ce rapport a été préparé avec soin et attention à chaque donnée. Nous sommes pleinement engagés dans la croissance du compte Colagea et avons hâte de partager les résultats de mai après l’impact des améliorations structurelles.</p>
+<div style="display:flex;justify-content:center;gap:0;max-width:400px;margin:0 auto;">
+<div style="flex:1;padding:20px;background:rgba(255,255,255,0.05);border-radius:8px 0 0 8px;border-right:1px solid rgba(255,255,255,0.08);">
+<div style="font-size:10px;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.35);margin-bottom:6px;">Préparé par</div>
+<div style="font-size:14px;font-weight:600;color:rgba(255,255,255,0.8);">Diana</div>
+<div style="font-size:12px;color:rgba(255,255,255,0.35);">Media Buyer</div>
+</div>
+<div style="flex:1;padding:20px;background:rgba(255,255,255,0.05);border-radius:0 8px 8px 0;">
+<div style="font-size:10px;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.35);margin-bottom:6px;">Revu par</div>
+<div style="font-size:14px;font-weight:600;color:rgba(255,255,255,0.8);">Charles Perot</div>
+<div style="font-size:12px;color:rgba(255,255,255,0.35);">Manager, Katchingg Media</div>
+</div>
+</div>
+<div style="margin-top:32px;height:4px;border-radius:2px;background:linear-gradient(90deg,#0085F7 0%,#138D5A 50%,#F8B83A 100%);max-width:200px;margin-left:auto;margin-right:auto;"></div>
+</div>
+<div class="report-footer">
+<div class="footer-brand">
+<div style="width:20px;height:20px;position:relative;flex-shrink:0;">
+<div style="position:absolute;width:20px;height:20px;border-radius:50%;border:3px solid #0085F7;border-bottom-color:transparent;transform:rotate(-30deg);"></div>
+<div style="position:absolute;width:13px;height:13px;top:3px;left:3px;border-radius:50%;border:2px solid #138D5A;border-top-color:transparent;transform:rotate(30deg);"></div>
+<div style="position:absolute;width:6px;height:6px;top:7px;left:7px;border-radius:50%;background:#F8B83A;"></div>
+</div>
+    Katchingg Media — Google Ads for eCom  |  Diana  |  Charles Perot
+  </div>
+<div class="footer-page">Colagea — Avril 2026</div>
+</div>
+<div class="color-bar" style="margin-top:16px;margin-bottom:0;"></div>
+</div>
+<script>
+new Chart(document.getElementById('revenueChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Brand Shopping', 'NB Shopping', 'Brand Search', 'PMax'],
+    datasets: [
+      {
+        label: 'Avril 2026 — Conv. Value (€)',
+        data: [15842.22, 10976.25, 9345.63, 5244],
+        backgroundColor: '#0085F7',
+        borderRadius: 4
+      },
+      {
+        label: 'Mars 2026 — Conv. Value (€)',
+        data: [18592, 14999, 11856, null],
+        backgroundColor: '#c8c6be',
+        borderRadius: 4
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: ctx => {
+            if (ctx.parsed.y === null) return ' Mars 2026 : N/A — campagne lancée le 10 mars';
+            return ` ${ctx.dataset.label}: €${ctx.parsed.y.toLocaleString()}`;
+          }
+        }
+      }
+    },
+    scales: {
+      x: { grid: { display: false }, ticks: { font: { size: 11 }, color: '#888', maxRotation: 20 } },
+      y: {
+        grid: { color: '#f0ede8' },
+        ticks: { font: { size: 11 }, color: '#888', callback: v => '€' + (v/1000).toFixed(0) + 'k' },
+        title: { display: true, text: 'Conv. Value (€)', font: { size: 11 }, color: '#aaa' }
+      }
+    }
+  }
+});
+</script>
+</body>
+</html>
